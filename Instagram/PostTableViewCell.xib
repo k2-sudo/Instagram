@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="896" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="418" height="896"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="816" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="418" height="816"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="418" height="895.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="418" height="815.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CDa-JL-MdJ">
@@ -67,10 +67,12 @@
                         </constraints>
                         <state key="normal" title="Post"/>
                     </button>
-                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mqN-aw-Kkn" customClass="I">
-                        <rect key="frame" x="18" y="551.5" width="382" height="326"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </tableView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5Q-rY-UhS">
+                        <rect key="frame" x="18" y="551" width="382" height="20.5"/>
+                        <color key="backgroundColor" red="1" green="0.94291959912672219" blue="0.99939368666737272" alpha="1" colorSpace="calibratedRGB"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="0r4-n8-2a9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="6TY-Ft-4I5"/>
@@ -79,27 +81,28 @@
                     <constraint firstAttribute="trailingMargin" secondItem="ZMk-OK-xqc" secondAttribute="trailing" constant="10" id="Bpj-o6-yNg"/>
                     <constraint firstItem="Yc3-1R-3E6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="NVE-iw-zNu"/>
                     <constraint firstItem="0r4-n8-2a9" firstAttribute="top" secondItem="RME-My-umL" secondAttribute="bottom" constant="10" id="Nne-eH-CIN"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="B5Q-rY-UhS" secondAttribute="bottom" priority="250" constant="10" id="QkC-uv-wgK"/>
                     <constraint firstItem="RME-My-umL" firstAttribute="top" secondItem="CDa-JL-MdJ" secondAttribute="bottom" constant="10" id="R5G-ou-7Uc"/>
                     <constraint firstItem="bVX-E4-HFE" firstAttribute="leading" secondItem="Yc3-1R-3E6" secondAttribute="trailing" constant="10" id="Rot-fn-3yq"/>
                     <constraint firstItem="bVX-E4-HFE" firstAttribute="centerY" secondItem="Yc3-1R-3E6" secondAttribute="centerY" id="Sik-Nd-gEu"/>
                     <constraint firstAttribute="trailingMargin" secondItem="0r4-n8-2a9" secondAttribute="trailing" constant="10" id="Vvb-f7-Ham"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="B5Q-rY-UhS" secondAttribute="trailing" constant="10" id="aql-cD-AEL"/>
                     <constraint firstItem="bdJ-1B-YJd" firstAttribute="leading" secondItem="RME-My-umL" secondAttribute="trailing" constant="10" id="bGc-ok-CGo"/>
+                    <constraint firstItem="B5Q-rY-UhS" firstAttribute="top" secondItem="Yc3-1R-3E6" secondAttribute="bottom" constant="10" id="cEB-hh-3E8"/>
                     <constraint firstItem="CDa-JL-MdJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="dD8-OP-JQt"/>
                     <constraint firstAttribute="trailingMargin" secondItem="bVX-E4-HFE" secondAttribute="trailing" constant="10" id="fx9-qW-GAD"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="mqN-aw-Kkn" secondAttribute="trailing" constant="10" id="gtl-FB-knB"/>
                     <constraint firstItem="Yc3-1R-3E6" firstAttribute="top" secondItem="0r4-n8-2a9" secondAttribute="bottom" constant="10" id="hh0-43-oY8"/>
                     <constraint firstItem="CDa-JL-MdJ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="hn7-WZ-15Y"/>
                     <constraint firstItem="RME-My-umL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="ji1-Tm-cXi"/>
-                    <constraint firstItem="mqN-aw-Kkn" firstAttribute="top" secondItem="Yc3-1R-3E6" secondAttribute="bottom" constant="10" id="r5m-qK-rbi"/>
                     <constraint firstItem="bVX-E4-HFE" firstAttribute="top" secondItem="0r4-n8-2a9" secondAttribute="bottom" constant="10" id="tHO-YU-mfE"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="mqN-aw-Kkn" secondAttribute="bottom" constant="10" id="uuo-7m-3mv"/>
-                    <constraint firstItem="mqN-aw-Kkn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="wXt-dB-S8o"/>
+                    <constraint firstItem="B5Q-rY-UhS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="taC-ax-oMB"/>
                     <constraint firstItem="ZMk-OK-xqc" firstAttribute="leading" secondItem="bdJ-1B-YJd" secondAttribute="trailing" constant="10" id="ySQ-0X-CWg"/>
                     <constraint firstItem="ZMk-OK-xqc" firstAttribute="centerY" secondItem="RME-My-umL" secondAttribute="centerY" id="yzM-k4-7Oo"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="captionLabel" destination="0r4-n8-2a9" id="5CU-yN-KVa"/>
+                <outlet property="commentAllView" destination="B5Q-rY-UhS" id="iol-B3-yQP"/>
                 <outlet property="commentButton" destination="Yc3-1R-3E6" id="BhD-5F-PzI"/>
                 <outlet property="commentText" destination="bVX-E4-HFE" id="2uh-lo-niW"/>
                 <outlet property="dateLabel" destination="ZMk-OK-xqc" id="X9k-hh-981"/>
@@ -107,7 +110,7 @@
                 <outlet property="likeLabel" destination="bdJ-1B-YJd" id="WuG-Tx-VQy"/>
                 <outlet property="postImageView" destination="CDa-JL-MdJ" id="3cj-iA-qye"/>
             </connections>
-            <point key="canvasLocation" x="322" y="558"/>
+            <point key="canvasLocation" x="327" y="486"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -80,8 +80,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.likeButton.addTarget(self, action:"handleButton:event:", forControlEvents:  UIControlEvents.TouchUpInside)
         cell.commentButton.addTarget(self, action: "handleCommentButton:event:", forControlEvents: UIControlEvents.TouchUpInside)
         
-        //TODO
-        
         // UILabelの行数が変わっている可能性があるので再描画させる
         cell.layoutIfNeeded()
         
@@ -110,23 +108,40 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Firebaseに保存するデータの準備
         let uid = firebaseRef.authData.uid
 
-        postData.comments.append("Nice!!")
-        postData.commentUids.append(uid)
+        let cell = tableView.cellForRowAtIndexPath(indexPath!)!
         
-        print("Commented on the post " + (String)(indexPath!.row))
-        print("Post id: " + postData.id!)
+        // Tagを使った方式（邪道）
+        // if let tf = cell.viewWithTag(2) as? UITextField {
+        // print("text: \(tf.text)") //	}
         
-        
-        let comments = postData.comments
-        let commentUids = postData.commentUids
+        if let cell = cell as? PostTableViewCell {
+            let c = cell.commentText.text!
+            if (c == ""){
+                print("No comment")
+            }else{//register comment
+                postData.comments.append(c)
+                postData.commentUids.append(uid)
+                
+                let ud = NSUserDefaults.standardUserDefaults()
+                let name = ud.objectForKey(CommonConst.DisplayNameKey) as! String
+                postData.commentUsers.append(name)
+                
+                print("Commented on the post " + (String)(indexPath!.row))
+                print("Post id: " + postData.id!)
+                print("Comment:" + c)
 
-        // 辞書を作成してFirebaseに保存する
-        //let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "comments": comments]
-        let post = ["comments": comments, "commentUids":commentUids]
-        let postRef = Firebase(url: CommonConst.FirebaseURL).childByAppendingPath(CommonConst.PostPATH)
-
-        postRef.childByAppendingPath(postData.id).updateChildValues(post)
-        
+                let comments = postData.comments
+                let commentUids = postData.commentUids
+                let commentUsers = postData.commentUsers
+                
+                // 辞書を作成してFirebaseに保存する
+                let post = ["comments": comments, "commentUids":commentUids, "commentUsers":commentUsers]
+                let postRef = Firebase(url: CommonConst.FirebaseURL).childByAppendingPath(CommonConst.PostPATH)
+                postRef.childByAppendingPath(postData.id).updateChildValues(post)
+                
+                cell.commentText.text! = ""
+            }
+        }
     }
 
     // セル内のLikeボタンがタップされた時に呼ばれるメソッド
@@ -158,15 +173,23 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             postData.likes.append(uid)
         }
         
-        let imageString = postData.imageString
-        let name = postData.name
-        let caption = postData.caption
-        let time = (postData.date?.timeIntervalSinceReferenceDate)! as NSTimeInterval
+        //let imageString = postData.imageString
+        //let name = postData.name
+        //let caption = postData.caption
+        //let time = (postData.date?.timeIntervalSinceReferenceDate)! as NSTimeInterval
         let likes = postData.likes
         
         // 辞書を作成してFirebaseに保存する
+        /*
         let post = ["caption": caption!, "image": imageString!, "name": name!, "time": time, "likes": likes]
         let postRef = Firebase(url: CommonConst.FirebaseURL).childByAppendingPath(CommonConst.PostPATH)
         postRef.childByAppendingPath(postData.id).setValue(post)
+        */
+        
+        let post = ["likes": likes]
+        let postRef = Firebase(url: CommonConst.FirebaseURL).childByAppendingPath(CommonConst.PostPATH)
+        postRef.childByAppendingPath(postData.id).updateChildValues(post)
+        
+        
     }
 }

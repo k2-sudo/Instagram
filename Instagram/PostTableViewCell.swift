@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import QuartzCore
 
 //class PostTableViewCell: UITableViewCell , UITableViewDataSource, UITableViewDelegate{
 class PostTableViewCell: UITableViewCell{
@@ -21,6 +22,9 @@ class PostTableViewCell: UITableViewCell{
     @IBOutlet var commentText: UITextField!
     
     @IBOutlet var commentButton: UIButton!
+
+    @IBOutlet var commentAllView: UILabel!
+    
     
     // ボタン関数はHomeViewController内でCode定義
     //（セルは複数存在するため、どのセルのボタンを押したかを判別する必要があるのでここでは定義できない）
@@ -63,6 +67,20 @@ class PostTableViewCell: UITableViewCell{
             likeButton.setImage(buttonImage, forState: UIControlState.Normal)
         }
         
+        
+        //print("# of comments: " + (String)(postData!.comments.count))
+        
+        commentAllView.text = ""
+        
+        var i = 0
+        while i < postData!.comments.count{
+            commentAllView.text = commentAllView.text! + postData!.commentUsers[i] + ": " + postData!.comments[i]
+            if i != (postData!.comments.count - 1) {
+                commentAllView.text = commentAllView.text! + "\n"
+            }
+            i++
+        }
+         
         super.layoutSubviews()
     }
     
